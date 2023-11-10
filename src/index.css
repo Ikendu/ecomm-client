@@ -27,27 +27,61 @@ button:hover {
 
 /* Admin Section */
 
-.admin {
+.admin,
+.register,
+.post {
   text-align: center;
   width: 80%;
   margin: 0 auto;
   margin-top: 80px;
 }
-.admin form {
+.admin form,
+.register form,
+.post form {
   width: 70%;
   margin: 0 auto;
   margin-top: 30px;
 }
-.admin input {
+.admin input,
+.register input,
+.post input {
+  display: block;
   width: 100%;
   margin-top: 20px;
   padding: 10px 30px;
   font-size: 16px;
   border-radius: 5px;
+  border: 0;
 }
-.admin .btn {
+.admin .btn,
+.register .btn,
+.post .btn {
   color: rgb(173, 173, 164);
   background-color: rgb(34, 29, 29);
   cursor: pointer;
   margin-bottom: 20px;
+}
+.post .box {
+  max-width: 200px;
+  display: flex;
+  margin-bottom: 20px;
+}
+.post .click {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.logged {
+  margin-left: -150px;
+}
+.logged .create,
+.logged .logout {
+  text-decoration: none;
+  background-color: #406e52;
+  padding: 10px;
+  border-radius: 7px;
+  color: rgb(217, 234, 248);
+}
+.logged .logout {
+  background-color: rgb(128, 21, 21);
 }

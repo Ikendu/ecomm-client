@@ -9,7 +9,12 @@
   top: 0;
   z-index: 10;
 }
-
+a {
+  cursor: pointer;
+}
+.content a {
+  margin-left: 10px;
+}
 .logo {
   position: absolute;
   left: 0;

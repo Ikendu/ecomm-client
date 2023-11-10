@@ -1,5 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { items } from '../../features/CBody/items'
+
+const getCartItems = createAsyncThunk(`cart/getCartItems`, () => {
+  return fetch(`http://localhost:4000/products`)
+    .then((resp) => resp.json())
+    .catch((err) => console.log(err))
+})
 
 const initialState = {
   products: items,

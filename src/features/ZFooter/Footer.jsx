@@ -8,7 +8,6 @@ import {
   WhatsappPale,
 } from '../ICON/CartIcon'
 import { Suspense, lazy, useState } from 'react'
-import Admin from '../Admin'
 import { Link } from 'react-router-dom'
 const SuspenseAbout = lazy(() => import('./AboutUs'))
 const SuspenseContact = lazy(() => import('./ContactUs'))

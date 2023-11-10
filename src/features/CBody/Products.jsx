@@ -11,9 +11,18 @@ import {
   productAdd,
   reduceBtn,
 } from '../../STORE/reducers/cartRedecer'
+import { useEffect } from 'react'
 
 const Products = () => {
   const { products } = useSelector((state) => state.cart)
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/products`).then((resp) => {
+      resp.json().then((products) => {
+        console.log(products)
+      })
+    })
+  }, [])
 
   return (
     <div className='container'>
