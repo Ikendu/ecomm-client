@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { items } from '../../features/CBody/items'
 
-const getCartItems = createAsyncThunk(`cart/getCartItems`, () => {
+export const getCartItems = createAsyncThunk(`cart/getCartItems`, () => {
   return fetch(`http://localhost:4000/products`)
     .then((resp) => resp.json())
     .catch((err) => console.log(err))
@@ -86,6 +86,18 @@ const cartReducer = createSlice({
     reduceBtn: (state, { payload }) => {
       let cartItem = state.products.find((prod) => prod.id === payload)
       cartItem.count = cartItem.count - 1
+    },
+  },
+  extraReducers: {
+    [getCartItems.pending]: (state) => {
+      state.isLoading = true
+    },
+    [getCartItems.fulfilled]: (state, action) => {
+      state.isLoading = false
+      state.products = action.payload
+    },
+    [getCartItems.rejected]: (state) => {
+      state.isLoading = false
     },
   },
 })

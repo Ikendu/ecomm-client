@@ -1,6 +1,7 @@
 import { closeModel } from '../../STORE/reducers/modalReducer'
 import './payment.css'
 import { useDispatch, useSelector } from 'react-redux'
+
 const Payment = () => {
   const { total, sales } = useSelector((state) => state.cart)
   const dispatch = useDispatch()

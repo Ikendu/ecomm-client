@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Products from './features/CBody/Products'
 import Card from './features/DCart/Card'
 import { useDispatch, useSelector } from 'react-redux'
-import { calculate } from './STORE/reducers/cartRedecer'
+import { calculate, getCartItems } from './STORE/reducers/cartRedecer'
 import Payment from './features/EPayment/Payment'
 import FrontPage from './features/AHeader/FrontPage'
 import { Routes, Route } from 'react-router-dom'
@@ -13,13 +13,21 @@ import { ContextProvider, UserContext } from './operators/UserContext'
 import Post from './operators/Post'
 
 const App = () => {
-  const { sales } = useSelector((state) => state.cart)
+  const { sales, isLoading } = useSelector((state) => state.cart)
   const { isOpen } = useSelector((state) => state.modal)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(calculate())
   }, [sales])
+
+  useEffect(() => {
+    dispatch(getCartItems())
+  })
+
+  if (isLoading) {
+    return <h1>Loading...</h1>
+  }
 
   return (
     <>
