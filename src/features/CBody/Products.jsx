@@ -7,6 +7,7 @@ import {
   addItems,
   addToCart,
   decreaseBtn,
+  getCartItems,
   increaseBtn,
   productAdd,
   reduceBtn,
@@ -14,15 +15,24 @@ import {
 import { useEffect } from 'react'
 
 const Products = () => {
-  const { products } = useSelector((state) => state.cart)
+  const { products, isLoading } = useSelector((state) => state.cart)
+  const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   fetch(`http://localhost:4000/products`).then((resp) => {
+  //     resp.json().then((products) => {
+  //       console.log(products)
+  //     })
+  //   })
+  // }, [])
 
   useEffect(() => {
-    fetch(`http://localhost:4000/products`).then((resp) => {
-      resp.json().then((products) => {
-        console.log(products)
-      })
-    })
+    dispatch(getCartItems)
   }, [])
+
+  if (isLoading) {
+    return <h2>Loading...</h2>
+  }
 
   return (
     <div className='container'>

@@ -28,7 +28,7 @@ const formats = [
 ]
 
 const Post = () => {
-  const [product, setProduct] = useState(``)
+  const [name, setProduct] = useState(``)
   const [price, setPrice] = useState()
   const [content, setContent] = useState(``)
   const [files, setFile] = useState(``)
@@ -37,7 +37,7 @@ const Post = () => {
   const postItems = async (e) => {
     e.preventDefault()
     const data = new FormData()
-    data.set(`product`, product)
+    data.set(`product`, name)
     data.set(`price`, price)
     data.set(`content`, content)
     data.set(`file`, files[0])
@@ -60,7 +60,7 @@ const Post = () => {
         <input
           type='text'
           placeholder='Product name'
-          value={product}
+          value={name}
           onChange={(e) => setProduct(e.target.value)}
         />
 

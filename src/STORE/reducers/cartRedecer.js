@@ -8,7 +8,7 @@ export const getCartItems = createAsyncThunk(`cart/getCartItems`, () => {
 })
 
 const initialState = {
-  products: items,
+  products: [],
   sales: [],
   total: 0,
   counter: 0,

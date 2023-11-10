@@ -21,13 +21,13 @@ const App = () => {
     dispatch(calculate())
   }, [sales])
 
-  useEffect(() => {
-    dispatch(getCartItems())
-  })
+  // useEffect(() => {
+  //   dispatch(getCartItems())
+  // })
 
-  if (isLoading) {
-    return <h1>Loading...</h1>
-  }
+  // if (isLoading) {
+  //   return <h1>Loading...</h1>
+  // }
 
   return (
     <>
