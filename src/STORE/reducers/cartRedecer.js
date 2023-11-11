@@ -30,25 +30,29 @@ const cartReducer = createSlice({
     },
 
     addItems: (state, { payload }) => {
-      let index = state.sales.findIndex((items) => items.id === payload.id)
+      let index = state.sales.findIndex((items) => items._id === payload._id)
       if (index == -1) {
-        let selected = state.products.find((item) => item.id === payload.id)
+        let selected = state.products.find((item) => item._id === payload._id)
         state.sales.push(selected)
       }
     },
 
     removeItem: (state, action) => {
-      let newItems = state.sales.filter((item) => item.id !== action.payload)
+      let newItems = state.sales.filter((item) => item._id !== action.payload)
       state.sales = newItems
+    },
+    removeProduct: (state, action) => {
+      let newItems = state.products.filter((item) => item._id !== action.payload)
+      state.products = newItems
     },
 
     increaseBtn: (state, { payload }) => {
-      let cartItem = state.sales.find((prod) => prod.id === payload)
+      let cartItem = state.sales.find((prod) => prod._id === payload)
       cartItem.count = cartItem.count + 1
     },
 
     decreaseBtn: (state, { payload }) => {
-      let cartItem = state.sales.find((prod) => prod.id === payload)
+      let cartItem = state.sales.find((prod) => prod._id === payload)
       cartItem.count = cartItem.count - 1
     },
 
@@ -66,39 +70,41 @@ const cartReducer = createSlice({
 
     //contolling the main page add functionality
     productAdd: (state, { payload }) => {
-      let cartItem = state.products.find((prod) => prod.id === payload.id)
+      let cartItem = state.products.find((prod) => prod._id === payload._id)
       cartItem.added = true
     },
 
     //contolling the main page add functionality
     addToCart: (state, { payload }) => {
-      let cartItem = state.products.find((prod) => prod.id === payload.id)
+      let cartItem = state.products.find((prod) => prod._id === payload._id)
       cartItem.added = false
     },
 
     //increase the qunatity from the main page
     addBtn: (state, { payload }) => {
-      let cartItem = state.products.find((prod) => prod.id === payload)
+      let cartItem = state.products.find((prod) => prod._id === payload)
       cartItem.count = cartItem.count + 1
     },
 
     //decrease the quantity from the main page
     reduceBtn: (state, { payload }) => {
-      let cartItem = state.products.find((prod) => prod.id === payload)
+      let cartItem = state.products.find((prod) => prod._id === payload)
       cartItem.count = cartItem.count - 1
     },
   },
-  extraReducers: {
-    [getCartItems.pending]: (state) => {
-      state.isLoading = true
-    },
-    [getCartItems.fulfilled]: (state, action) => {
-      state.isLoading = false
-      state.products = action.payload
-    },
-    [getCartItems.rejected]: (state) => {
-      state.isLoading = false
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getCartItems.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getCartItems.fulfilled, (state, action) => {
+        console.log(action.payload)
+        state.isLoading = false
+        state.products = action.payload
+      })
+      .addCase(getCartItems.rejected, (state) => {
+        state.isLoading = false
+      })
   },
 })
 
@@ -114,6 +120,7 @@ export const {
   addToCart,
   addBtn,
   reduceBtn,
+  removeProduct,
 } = cartReducer.actions
 
 export default cartReducer.reducer

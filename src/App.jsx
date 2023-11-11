@@ -11,6 +11,7 @@ import Register from './operators/Register'
 import Layout from './operators/Layout'
 import { ContextProvider, UserContext } from './operators/UserContext'
 import Post from './operators/Post'
+import Product from './features/CBody/Product'
 
 const App = () => {
   const { sales, isLoading } = useSelector((state) => state.cart)
@@ -18,12 +19,12 @@ const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    dispatch(getCartItems())
+  }, [])
+
+  useEffect(() => {
     dispatch(calculate())
   }, [sales])
-
-  // useEffect(() => {
-  //   dispatch(getCartItems())
-  // })
 
   // if (isLoading) {
   //   return <h1>Loading...</h1>
@@ -48,6 +49,7 @@ const App = () => {
             <Route path='/admin' element={<Admin />} />
             <Route path='/register' element={<Register />} />
             <Route path='/post' element={<Post />} />
+            <Route path='/product/:id' element={<Product />} />
           </Route>
         </Routes>
       </ContextProvider>
