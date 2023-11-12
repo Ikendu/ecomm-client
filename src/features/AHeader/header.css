@@ -23,8 +23,8 @@ a {
   font-size: 35px;
   font-weight: bold;
   color: #403de2;
-  margin: -8px;
   margin-top: 0px;
+  margin-left: 5px;
 }
 .icon {
   border-radius: 50%;
@@ -37,9 +37,9 @@ a {
   margin: 5px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .top {
-    height: 5vh;
+    height: 45px;
     width: 100%;
   }
   .icon {
@@ -47,7 +47,7 @@ a {
     width: 30px;
   }
   .name {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
@@ -56,35 +56,138 @@ nav ul {
   justify-content: space-evenly;
   padding-inline-start: 0;
   margin-block: 0;
-  background-color: #4d0509;
-  position: absolute;
-  right: 40px;
+  align-items: center;
+  margin-left: 150px;
+
   top: 18px;
   border-radius: 12px;
 }
 nav ul li {
-  font-size: 14px;
-  color: #accbf3;
+  font-size: 16px;
+  color: #1b4070;
   list-style: none;
   padding: 5px 20px;
 }
 nav ul li:hover {
-  color: #77f480;
+  color: #06420a;
   border-top: 2px solid #e5030d;
   border-bottom: 2px solid #e5030d;
   border-radius: 12px;
+}
+.nav-icon svg {
+  position: absolute;
+  width: 30px;
+  right: 10px;
+  display: none;
+  top: 4px;
+}
+
+/* mobile only css */
+.content-mob ul {
+  display: none;
+  background-color: #2a0305;
+  position: fixed;
+  right: 0px;
+  top: 43px;
+  z-index: 9;
+  border-top-right-radius: 0;
+}
+
+.content-mob ul li {
+  display: block;
+  font-size: 16px;
+  color: #6297db;
+  padding: 5px 20px;
+  padding: 15px 60px;
+  border-top: 2px solid #7e7e7d;
+  text-align: center;
 }
 
 @media screen and (max-width: 900px) {
   nav ul {
     display: none;
   }
-  #content ul {
-    display: none;
-    right: 0;
-    top: 58px;
+  .content-mob ul {
+    display: block;
+  }
+  .nav-icon svg {
+    display: block;
   }
 }
+
+.shopping {
+  text-align: center;
+  z-index: 5;
+  cursor: pointer;
+  margin-left: 40px;
+}
+.shopping svg {
+  width: 50px;
+}
+
+.shopping span {
+  position: absolute;
+  top: -5;
+  background-color: #403de2;
+  border-radius: 40%;
+  padding: 3px 6px;
+  margin-left: -10px;
+  color: rgb(235, 229, 229);
+}
+.shopping p {
+  background-color: #403de2;
+  color: #f1eded;
+  border-radius: 5px;
+  padding-bottom: 4px;
+  margin-top: -17px;
+}
+@media screen and (max-width: 900px) {
+  .shopping {
+    margin-right: -200px;
+  }
+  .shopping svg {
+    width: 30px;
+  }
+  .shopping span {
+    font-size: 12px;
+    border-radius: 40%;
+    padding: 1px 4px;
+  }
+  .shopping p {
+    border-radius: 5px;
+    padding-bottom: 2px;
+    margin-top: -20px;
+    font-size: 12px;
+  }
+}
+/*
+@media screen and (max-width: 900px) {
+  nav ul {
+    display: block;
+    background-color: #2a0305;
+    border-radius: 0;
+  }
+  #content ul {    
+    right: 0;
+    top: 40px;
+  }
+  nav ul:nth-child(1) {
+    padding-bottom: 20px;
+  }
+  nav ul li {
+    right: 0;
+    padding: 0px 50px;
+    padding-top: 20px;
+    border-top: 2px solid #7d7e7e;
+    text-align: center;
+  }
+  .fa-bars {
+    position: absolute;
+    right: 15px;
+    font-size: 20px;
+    color: #1c8c96;
+  }
+} */
 main {
   height: 90vh;
   background-color: #d8dde0;
@@ -142,7 +245,7 @@ p button {
 a {
   text-decoration: none;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   main {
     position: relative;
     top: -30px;
@@ -204,59 +307,58 @@ a {
     border-radius: 7px;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
   main h1 {
-    margin-left: -70px;
+    margin-left: -50px;
   }
   main .write {
-    margin-left: -20px;
+    margin-left: -8px;
     width: 320px;
   }
 
   .trans {
     top: 90px;
-    left: 20px;
+    left: 30px;
+    height: 420px;
   }
+  main,
   main img {
-    height: 60vh;
-  }
-  main {
     height: 60vh;
   }
 }
 @media screen and (max-width: 400px) {
   main h1 {
-    margin-left: -80px;
-    margin-top: 90px;
+    margin-left: -60px;
+    margin-top: 110px;
+    font-size: 35px;
   }
+
   main .write {
-    margin-left: -35px;
-    width: 300px;
+    width: 290px;
+    margin-top: -35px;
   }
 
   .trans {
-    top: 80px;
+    top: 110px;
     width: 305px;
-    left: 15px;
-    height: 410px;
-  }
-  main img {
-    height: 85vh;
+    left: 30px;
+    height: 350px;
   }
   main {
-    height: 85vh;
     margin-bottom: 20px;
+  }
+  main,
+  main img {
+    height: 70vh;
   }
   main .more-write {
     color: rgb(26, 24, 24);
     font-size: 14px;
+    margin-top: -15px;
   }
   main .head-write {
     font-size: 14px;
-    margin-top: 20px;
+    margin-top: 5px;
     line-height: 20px;
-  }
-  main .write {
-    margin-top: -40px;
   }
 }

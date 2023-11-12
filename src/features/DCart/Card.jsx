@@ -19,11 +19,11 @@ const Card = () => {
 
   return (
     <>
-      <div className='shopping' onClick={() => dispatch(openCart())}>
+      {/* <div className='shopping' onClick={() => dispatch(openCart())}>
         <CartIcon />
         <span>{counter}</span>
         <p>Open</p>
-      </div>
+      </div> */}
       {isOpen && (
         <div className='card-shopping'>
           <div className='card-header'>

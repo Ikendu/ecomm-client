@@ -69,6 +69,15 @@ const Display = ({ image, name, price, _id, added, count, createdAt, author }) =
     )
   }, [])
 
+  const deleteItem = (id) => {
+    fetch(`http://localhost:4000/delete/${id}`, {
+      method: `DELETE`,
+    }).then((res) => {
+      console.log(res)
+      window.location.reload()
+    })
+  }
+
   return (
     <div className='item' key={_id}>
       <Link to={`/product/${_id}`}>
@@ -120,7 +129,10 @@ const Display = ({ image, name, price, _id, added, count, createdAt, author }) =
       )}
       {user && (
         <div className='extraBtn'>
-          <button className='editPost'>Edit</button>
+          <Link to={`/edit/${_id}`}>
+            <button className='editPost'>Edit</button>
+          </Link>
+
           <div className='time-ago'>
             <ReactTimeAgo date={createdAt} locale='en-US' />
             <Link to={`/product/${_id}`}>
@@ -129,7 +141,7 @@ const Display = ({ image, name, price, _id, added, count, createdAt, author }) =
 
             {/* <p>{author?.name}</p> */}
           </div>
-          <button onClick={() => dispatch(removeProduct(_id))} className='deletePost'>
+          <button onClick={(e) => deleteItem(_id)} className='deletePost'>
             Delete
           </button>
         </div>

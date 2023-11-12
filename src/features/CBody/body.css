@@ -9,7 +9,7 @@
   padding-top: 50px;
   text-align: center;
   width: 100%;
-  color: #29099e;
+  color: #4a4a55;
 }
 .list {
   display: grid;
@@ -36,7 +36,7 @@
 .list .item button {
   width: 90%;
   padding: 12px;
-  background: #470202;
+  background: rgb(10, 11, 12);
   color: #d4cfcf;
   font-size: 14px;
   letter-spacing: 2px;
@@ -55,10 +55,6 @@
 .item .adderBtn:hover {
   color: #77f480;
   border-radius: 0px;
-}
-button:active,
-button:focus {
-  border-color: rgb(185, 8, 141);
 }
 @media screen and (max-width: 600px) {
   .list {
@@ -84,12 +80,15 @@ button:focus {
 }
 .item .extraBtn .editPost,
 .item .extraBtn .deletePost {
-  width: 20%;
+  background-color: rgb(102, 20, 11);
+  width: 20% !important;
   margin: 10px;
   margin-right: 40px;
+  padding: 5px;
 }
 .item .extraBtn .editPost {
   background-color: #133015;
+  width: 75% !important;
 }
 .list .time-ago {
   font-size: 13px;
@@ -138,7 +137,7 @@ button:focus {
 .time-ago {
   text-align: center;
   font-size: 14px !important;
-  color: #636868 !important;
+  color: #3f4242 !important;
 }
 .product-details .more-detail {
   text-align: center;
@@ -147,4 +146,17 @@ button:focus {
 }
 .inner-html {
   background-color: #d0d8d8;
+}
+
+.product-details button,
+.product-details p {
+  margin-left: 10%;
+  width: 80%;
+  padding: 10px;
+  text-align: center;
+}
+.product-details .button-para {
+  background-color: rgb(247, 247, 34);
+  font-weight: bold;
+  font-size: 16px;
 }

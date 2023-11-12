@@ -12,6 +12,7 @@ import Layout from './operators/Layout'
 import { ContextProvider, UserContext } from './operators/UserContext'
 import Post from './operators/Post'
 import Product from './features/CBody/Product'
+import EditPost from './operators/EditPost'
 
 const App = () => {
   const { sales, isLoading } = useSelector((state) => state.cart)
@@ -50,6 +51,7 @@ const App = () => {
             <Route path='/register' element={<Register />} />
             <Route path='/post' element={<Post />} />
             <Route path='/product/:id' element={<Product />} />
+            <Route path='/edit/:id' element={<EditPost />} />
           </Route>
         </Routes>
       </ContextProvider>

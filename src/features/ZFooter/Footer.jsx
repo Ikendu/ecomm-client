@@ -76,7 +76,9 @@ const Footer = () => {
         </div>
         <div>
           <p>Privacy Policies</p>
-          <Link to={`/admin`}>Admin</Link>
+          <Link to={`/admin`} className='admin-login'>
+            Admin
+          </Link>
         </div>
 
         <p className='developer'>
