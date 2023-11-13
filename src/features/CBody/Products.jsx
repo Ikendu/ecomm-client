@@ -1,8 +1,4 @@
 import './body.css'
-import TimeAgo from 'javascript-time-ago'
-import en from 'javascript-time-ago/locale/en.json'
-import ru from 'javascript-time-ago/locale/ru.json'
-import ReactTimeAgo from 'react-time-ago'
 
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
@@ -14,14 +10,17 @@ import {
   increaseBtn,
   productAdd,
   reduceBtn,
-  removeProduct,
 } from '../../STORE/reducers/cartRedecer'
 import { useContext, useEffect } from 'react'
 import { UserContext } from '../../operators/UserContext'
 import { Link } from 'react-router-dom'
 
-TimeAgo.addDefaultLocale(en)
-TimeAgo.addLocale(ru)
+// import TimeAgo from 'javascript-time-ago'
+// import en from 'javascript-time-ago/locale/en.json'
+// import ru from 'javascript-time-ago/locale/ru.json'
+// import ReactTimeAgo from 'react-time-ago'
+// TimeAgo.addDefaultLocale(en)
+// TimeAgo.addLocale(ru)
 
 const Products = () => {
   const { products, isLoading } = useSelector((state) => state.cart)
@@ -127,25 +126,23 @@ const Display = ({ image, name, price, _id, added, count, createdAt, author }) =
           </button>
         </>
       )}
-      {user && (
-        <div className='extraBtn'>
-          <Link to={`/edit/${_id}`}>
-            <button className='editPost'>Edit</button>
-          </Link>
 
-          <div className='time-ago'>
-            <ReactTimeAgo date={createdAt} locale='en-US' />
-            <Link to={`/product/${_id}`}>
-              <button className='more-details'>More details</button>
+      <div className='extraBtn'>
+        {user.name && (
+          <div>
+            <Link to={`/edit/${_id}`}>
+              <button className='editPost'>Edit</button>
             </Link>
-
-            {/* <p>{author?.name}</p> */}
+            <button onClick={() => deleteItem(_id)} className='deletePost'>
+              Delete
+            </button>
           </div>
-          <button onClick={(e) => deleteItem(_id)} className='deletePost'>
-            Delete
-          </button>
-        </div>
-      )}
+        )}
+
+        <Link to={`/product/${_id}`}>
+          <button className='more-details'>More details</button>
+        </Link>
+      </div>
     </div>
   )
 }

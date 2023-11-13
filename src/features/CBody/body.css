@@ -73,29 +73,16 @@
     font-size: 27px;
   }
 }
-.item .extraBtn {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 -19px 0 10px;
-}
+
 .item .extraBtn .editPost,
 .item .extraBtn .deletePost {
   background-color: rgb(102, 20, 11);
   width: 20% !important;
   margin: 10px;
-  margin-right: 40px;
   padding: 5px;
 }
 .item .extraBtn .editPost {
   background-color: #133015;
-  width: 75% !important;
-}
-.list .time-ago {
-  font-size: 13px;
-  margin: 10px 0 0 -20px;
-  position: relative;
-  left: 0;
-  color: #636868 !important;
 }
 .more-details {
   background-color: transparent !important;
@@ -133,11 +120,6 @@
   font-weight: bold;
   color: #3a3d3d;
   margin-bottom: 20px;
-}
-.time-ago {
-  text-align: center;
-  font-size: 14px !important;
-  color: #3f4242 !important;
 }
 .product-details .more-detail {
   text-align: center;
