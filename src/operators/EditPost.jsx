@@ -54,14 +54,13 @@ const EditPost = () => {
     data.set(`name`, name)
     data.set(`price`, price)
     data.set(`content`, content)
-    data.set(`file`, files?.[0])
+    if (files?.[0]) data.set(`file`, files?.[0])
     data.set(`id`, id)
 
     const resp = await fetch(`https://hairview-api.onrender.com/post`, {
       method: `PUT`,
       body: data,
       credentials: `include`,
-      headers: { 'Content-Type': 'application/json' },
     })
     resp.ok && setRedirect(true)
   }
