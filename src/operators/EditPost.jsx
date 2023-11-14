@@ -37,7 +37,7 @@ const EditPost = () => {
   const [redirect, setRedirect] = useState(false)
 
   useEffect(() => {
-    fetch(`https://hairview-api.onrender.com/${id}`).then((resp) =>
+    fetch(`https://hairview-api.onrender.com/product/${id}`).then((resp) =>
       resp.json().then((productInfo) => {
         const { name, price, content, image } = productInfo
         setProduct(name)
