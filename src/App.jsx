@@ -14,6 +14,8 @@ import Post from './operators/Post'
 import Product from './features/CBody/Product'
 import EditPost from './operators/EditPost'
 
+export const CONNECTION_URL = [`http://localhost:4000`, `https://hairview-api.onrender.com`]
+
 const App = () => {
   const { sales, isLoading } = useSelector((state) => state.cart)
   const { isOpen } = useSelector((state) => state.modal)
