@@ -43,7 +43,7 @@ const Post = () => {
     data.set(`file`, files[0])
     console.log(files)
 
-    const resp = await fetch(`http://localhost:4000/post`, {
+    const resp = await fetch(`https://hairview-api.onrender.com/post`, {
       method: `POST`,
       body: data,
       credentials: `include`,

@@ -38,7 +38,11 @@ const Card = () => {
             {sales.map(({ name, image, _id, price, count }) => (
               <div className='cardGroup' key={_id}>
                 <div className='listItems'>
-                  <img src={`http://localhost:4000/` + image} alt={name} style={{ width: 70 }} />
+                  <img
+                    src={`https://hairview-api.onrender.com/` + image}
+                    alt={name}
+                    style={{ width: 70 }}
+                  />
                   <div className='details'>
                     <p>{name}</p>
                     <p className='gapping'>N {price.toLocaleString()}</p>

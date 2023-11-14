@@ -13,7 +13,6 @@ import {
 } from '../../STORE/reducers/cartRedecer'
 import Card from '../DCart/Card'
 import Payment from '../EPayment/Payment'
-import { CONNECTION_URL } from '../../App'
 // import { formatISO9075 } from 'date-fns'
 
 const Product = () => {
@@ -24,7 +23,7 @@ const Product = () => {
   const { isOpen } = useSelector((state) => state.modal)
 
   useEffect(() => {
-    fetch(`${CONNECTION_URL}/profile`).then((resp) =>
+    fetch(`https://hairview-api.onrender.com/profile`).then((resp) =>
       resp.json().then((userData) => {
         setUser(userData)
       })
@@ -32,7 +31,7 @@ const Product = () => {
   }, [])
 
   useEffect(() => {
-    fetch(`${CONNECTION_URL}/product/${id}`).then((resp) =>
+    fetch(`https://hairview-api.onrender.com/product/${id}`).then((resp) =>
       resp.json().then((userData) => setDetails(userData))
     )
   }, [])
@@ -46,7 +45,7 @@ const Product = () => {
       <div className='product-details'>
         <h2>{name?.toUpperCase()}</h2>
         {/* <time>{formatISO9075(new Date(createdAt))}</time> */}
-        <img src={'${CONNECTION_URL}/' + image} />
+        <img src={'https://hairview-api.onrender.com/' + image} />
 
         <div className='time-ago'>{/* <ReactTimeAgo date={createdAt} locale='en-US' /> */}</div>
         <div className='fullprice'>

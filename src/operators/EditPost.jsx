@@ -37,7 +37,7 @@ const EditPost = () => {
   const [redirect, setRedirect] = useState(false)
 
   useEffect(() => {
-    fetch(`http://localhost:4000/product/${id}`).then((resp) =>
+    fetch(`https://hairview-api.onrender.com/${id}`).then((resp) =>
       resp.json().then((productInfo) => {
         const { name, price, content, image } = productInfo
         setProduct(name)
@@ -57,7 +57,7 @@ const EditPost = () => {
     data.set(`file`, files?.[0])
     data.set(`id`, id)
 
-    const resp = await fetch(`http://localhost:4000/post`, {
+    const resp = await fetch(`https://hairview-api.onrender.com/post`, {
       method: `PUT`,
       body: data,
       credentials: `include`,

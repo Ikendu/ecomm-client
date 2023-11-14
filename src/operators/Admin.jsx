@@ -10,7 +10,7 @@ const Admin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await fetch(`http://localhost:4000/login`, {
+    const response = await fetch(`https://hairview-api.onrender.com/login`, {
       method: `POST`,
       body: JSON.stringify({ name, password }),
       headers: { 'Content-Type': 'application/json' },

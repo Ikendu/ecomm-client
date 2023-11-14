@@ -61,7 +61,7 @@ const Display = ({ image, name, price, _id, added, count, createdAt, author }) =
   const { user, setUser } = useContext(UserContext)
 
   useEffect(() => {
-    fetch(`http://localhost:4000/profile`).then((resp) =>
+    fetch(`https://hairview-api.onrender.com/profile`).then((resp) =>
       resp.json().then((userData) => {
         setUser(userData)
       })
@@ -69,7 +69,7 @@ const Display = ({ image, name, price, _id, added, count, createdAt, author }) =
   }, [])
 
   const deleteItem = (id) => {
-    fetch(`http://localhost:4000/delete/${id}`, {
+    fetch(`https://hairview-api.onrender.com/delete/${id}`, {
       method: `DELETE`,
     }).then((res) => {
       console.log(res)
@@ -80,7 +80,7 @@ const Display = ({ image, name, price, _id, added, count, createdAt, author }) =
   return (
     <div className='item' key={_id}>
       <Link to={`/product/${_id}`}>
-        <img src={`http://localhost:4000/` + image} alt={name} />
+        <img src={`https://hairview-api.onrender.com/` + image} alt={name} />
       </Link>
 
       <p className='title'>{name}</p>

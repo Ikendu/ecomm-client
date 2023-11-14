@@ -8,8 +8,6 @@ import { CartIcon, NavIcon } from '../ICON/CartIcon'
 import { openCart } from '../../STORE/reducers/cartRedecer'
 import { useDispatch, useSelector } from 'react-redux'
 
-const CONNECTION_URL = [`http://localhost:4000`, `https://hairview-api.onrender.com`]
-
 const Navbar = () => {
   const { counter } = useSelector((state) => state.cart)
   const { user, setUser } = useContext(UserContext)
@@ -17,7 +15,7 @@ const Navbar = () => {
   const [showNav, setShowNav] = useState(false)
 
   useEffect(() => {
-    fetch(`${CONNECTION_URL}/profile`, {
+    fetch(`https://hairview-api.onrender.com/profile`, {
       credentials: 'include',
     }).then((resp) =>
       resp.json().then((userInfo) => {
@@ -27,7 +25,7 @@ const Navbar = () => {
   }, [])
 
   const logout = () => {
-    fetch(`${CONNECTION_URL}/logout`, {
+    fetch(`https://hairview-api.onrender.com/logout`, {
       method: `POST`,
       credentials: `include`,
     })
