@@ -45,7 +45,7 @@ const Post = () => {
     data.set(`content`, content)
     data.set(`file`, files[0])
 
-    const resp = await fetch(url + `/post`, {
+    const resp = await fetch(url + `/create`, {
       method: `POST`,
       body: data,
       credentials: `include`,
