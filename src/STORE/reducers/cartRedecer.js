@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { items } from '../../features/CBody/items'
 
 export const getCartItems = createAsyncThunk(`cart/getCartItems`, () => {
-  return fetch(`http://localhost:4000/products`)
+  return fetch(`https://hairview-api.onrender.com/products`)
     .then((resp) => resp.json())
     .catch((err) => console.log(err))
 })

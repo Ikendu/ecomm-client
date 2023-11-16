@@ -4,6 +4,6 @@ export const UserContext = createContext({})
 
 export const ContextProvider = ({ children }) => {
   const [user, setUser] = useState({})
-  const url = `http://localhost:4000`
+  const url = `https://hairview-api.onrender.com`
   return <UserContext.Provider value={{ user, setUser, url }}>{children}</UserContext.Provider>
 }
