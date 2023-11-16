@@ -4,6 +4,6 @@ export const UserContext = createContext({})
 
 export const ContextProvider = ({ children }) => {
   const [user, setUser] = useState({})
-  const url = `https://hairview-api.onrender.com`
+  const url = import.meta.env.VITE_SERVER_URL
   return <UserContext.Provider value={{ user, setUser, url }}>{children}</UserContext.Provider>
 }
