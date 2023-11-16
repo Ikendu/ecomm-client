@@ -7,10 +7,10 @@ const Register = () => {
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)
 
-  const { user, setUser } = useContext(UserContext)
+  const { user, setUser, url } = useContext(UserContext)
 
   useEffect(() => {
-    fetch(`https://hairview-api.onrender.com/profile`, {
+    fetch(url + `/profile`, {
       credentials: 'include',
     }).then((resp) =>
       resp.json().then((userInfo) => {
@@ -21,7 +21,7 @@ const Register = () => {
 
   const handleSub = async (e) => {
     e.preventDefault()
-    const resp = await fetch(`https://hairview-api.onrender.com/register`, {
+    const resp = await fetch(url + `/register`, {
       method: `POST`,
       body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },

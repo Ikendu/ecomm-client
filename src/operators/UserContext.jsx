@@ -4,5 +4,6 @@ export const UserContext = createContext({})
 
 export const ContextProvider = ({ children }) => {
   const [user, setUser] = useState({})
-  return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>
+  const url = `http://localhost:4000`
+  return <UserContext.Provider value={{ user, setUser, url }}>{children}</UserContext.Provider>
 }

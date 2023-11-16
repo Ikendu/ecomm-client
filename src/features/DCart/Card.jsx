@@ -12,10 +12,13 @@ import {
   removeItem,
 } from '../../STORE/reducers/cartRedecer'
 import { openModel } from '../../STORE/reducers/modalReducer'
+import { useContext } from 'react'
+import { UserContext } from '../../operators/UserContext'
 
 const Card = () => {
   const { total, counter, isOpen, sales } = useSelector((state) => state.cart)
   const dispatch = useDispatch()
+  const { url } = useContext(UserContext)
 
   return (
     <>
@@ -38,11 +41,7 @@ const Card = () => {
             {sales.map(({ name, image, _id, price, count }) => (
               <div className='cardGroup' key={_id}>
                 <div className='listItems'>
-                  <img
-                    src={`https://hairview-api.onrender.com/` + image}
-                    alt={name}
-                    style={{ width: 70 }}
-                  />
+                  <img src={url + `/` + image} alt={name} style={{ width: 70 }} />
                   <div className='details'>
                     <p>{name}</p>
                     <p className='gapping'>N {price.toLocaleString()}</p>

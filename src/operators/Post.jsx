@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import { Navigate } from 'react-router-dom'
+import { UserContext } from './UserContext'
 
 const modules = {
   toolbar: [
@@ -29,10 +30,11 @@ const formats = [
 
 const Post = () => {
   const [name, setProduct] = useState(``)
-  const [price, setPrice] = useState()
+  const [price, setPrice] = useState(``)
   const [content, setContent] = useState(``)
-  const [files, setFile] = useState(``)
+  const [files, setFiles] = useState(``)
   const [redirect, setRedirect] = useState(false)
+  const { url } = useContext(UserContext)
 
   const postItems = async (e) => {
     e.preventDefault()
@@ -41,14 +43,13 @@ const Post = () => {
     data.set(`price`, price)
     data.set(`content`, content)
     data.set(`file`, files[0])
-    console.log(files)
 
-    const resp = await fetch(`https://hairview-api.onrender.com/post`, {
+    const resp = await fetch(url + `/post`, {
       method: `POST`,
       body: data,
       credentials: `include`,
     })
-    resp.ok && setRedirect(true)
+    if (resp.ok) setRedirect(true)
   }
   if (redirect) {
     return <Navigate to={`/`} />
@@ -64,7 +65,7 @@ const Post = () => {
           onChange={(e) => setProduct(e.target.value)}
         />
 
-        <input type='file' onChange={(e) => setFile(e.target.files)} />
+        <input type='file' onChange={(e) => setFiles(e.target.files)} />
 
         <input
           type='number'

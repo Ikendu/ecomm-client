@@ -18,12 +18,12 @@ import Payment from '../EPayment/Payment'
 const Product = () => {
   const [details, setDetails] = useState([])
   const { id } = useParams()
-  const { user, setUser } = useContext(UserContext)
+  const { user, setUser, url } = useContext(UserContext)
   const dispatch = useDispatch()
   const { isOpen } = useSelector((state) => state.modal)
 
   useEffect(() => {
-    fetch(`https://hairview-api.onrender.com/profile`).then((resp) =>
+    fetch(url + `/profile`, { credentials: `include` }).then((resp) =>
       resp.json().then((userData) => {
         setUser(userData)
       })
@@ -31,7 +31,7 @@ const Product = () => {
   }, [])
 
   useEffect(() => {
-    fetch(`https://hairview-api.onrender.com/product/${id}`).then((resp) =>
+    fetch(url + `/product/${id}`, { credentials: `include` }).then((resp) =>
       resp.json().then((userData) => setDetails(userData))
     )
   }, [])
@@ -45,7 +45,7 @@ const Product = () => {
       <div className='product-details'>
         <h2>{name?.toUpperCase()}</h2>
         {/* <time>{formatISO9075(new Date(createdAt))}</time> */}
-        <img src={'https://hairview-api.onrender.com/' + image} />
+        <img src={url + '/' + image} />
 
         <div className='time-ago'>{/* <ReactTimeAgo date={createdAt} locale='en-US' /> */}</div>
         <div className='fullprice'>
@@ -109,7 +109,7 @@ const Product = () => {
 
         <h3 className='more-detail'>More Product Details</h3>
         <div className='inner-html' dangerouslySetInnerHTML={{ __html: content }} />
-        {user.name && (
+        {user?.name && (
           <div className='extraBtn'>
             <Link to={`/edit/${_id}`}>
               <button className='editPost'>Edit</button>

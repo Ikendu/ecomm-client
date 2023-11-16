@@ -6,11 +6,11 @@ const Admin = () => {
   const [name, setName] = useState(``)
   const [password, setPassword] = useState(``)
   const [redirect, setRedirect] = useState(false)
-  const { user, setUser } = useContext(UserContext)
+  const { user, setUser, url } = useContext(UserContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await fetch(`https://hairview-api.onrender.com/login`, {
+    const response = await fetch(url + `/login`, {
       method: `POST`,
       body: JSON.stringify({ name, password }),
       headers: { 'Content-Type': 'application/json' },

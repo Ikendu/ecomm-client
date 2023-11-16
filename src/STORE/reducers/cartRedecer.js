@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { items } from '../../features/CBody/items'
 
 export const getCartItems = createAsyncThunk(`cart/getCartItems`, () => {
-  return fetch(`https://hairview-api.onrender.com/products`)
+  return fetch(`http://localhost:4000/products`)
     .then((resp) => resp.json())
     .catch((err) => console.log(err))
 })
@@ -98,7 +98,6 @@ const cartReducer = createSlice({
         state.isLoading = true
       })
       .addCase(getCartItems.fulfilled, (state, action) => {
-        console.log(action.payload)
         state.isLoading = false
         state.products = action.payload
       })

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import { Navigate, useParams } from 'react-router-dom'
+import { UserContext } from './UserContext'
 
 const modules = {
   toolbar: [
@@ -31,19 +32,19 @@ const formats = [
 const EditPost = () => {
   const { id } = useParams()
   const [name, setProduct] = useState(``)
-  const [price, setPrice] = useState()
+  const [price, setPrice] = useState(``)
   const [content, setContent] = useState(``)
   const [files, setFile] = useState(``)
   const [redirect, setRedirect] = useState(false)
+  const { url } = useContext(UserContext)
 
   useEffect(() => {
-    fetch(`https://hairview-api.onrender.com/product/${id}`).then((resp) =>
+    fetch(url + `/product/${id}`, { credentials: `include` }).then((resp) =>
       resp.json().then((productInfo) => {
-        const { name, price, content, image } = productInfo
+        const { name, price, content } = productInfo
         setProduct(name)
         setPrice(price)
         setContent(content)
-        //setFile(image)
       })
     )
   }, [])
@@ -57,7 +58,7 @@ const EditPost = () => {
     if (files?.[0]) data.set(`file`, files?.[0])
     data.set(`id`, id)
 
-    const resp = await fetch(`https://hairview-api.onrender.com/post`, {
+    const resp = await fetch(url + `/post`, {
       method: `PUT`,
       body: data,
       credentials: `include`,

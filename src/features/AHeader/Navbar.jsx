@@ -9,13 +9,14 @@ import { openCart } from '../../STORE/reducers/cartRedecer'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Navbar = () => {
+  const { url } = useContext(UserContext)
   const { counter } = useSelector((state) => state.cart)
   const { user, setUser } = useContext(UserContext)
   const dispatch = useDispatch()
   const [showNav, setShowNav] = useState(false)
 
   useEffect(() => {
-    fetch(`https://hairview-api.onrender.com/profile`, {
+    fetch(url + `/profile`, {
       credentials: 'include',
     }).then((resp) =>
       resp.json().then((userInfo) => {
@@ -25,9 +26,9 @@ const Navbar = () => {
   }, [])
 
   const logout = () => {
-    fetch(`https://hairview-api.onrender.com/logout`, {
-      method: `POST`,
+    fetch(url + `/logout`, {
       credentials: `include`,
+      method: `POST`,
     })
     setUser(null)
   }
@@ -35,6 +36,7 @@ const Navbar = () => {
   //   setShowNav(true)
   // }
   const userName = user?.name
+
   return (
     <>
       <header className='top'>

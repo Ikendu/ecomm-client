@@ -23,9 +23,9 @@ const Payment = () => {
             {sales.map((item) => (
               <tr key={item._id}>
                 <td>{item.name}</td>
-                <td> {item.price}</td>
+                <td>{item.price}</td>
                 <td>{item.count}</td>
-                <td> {(item.price * item.count).toLocaleString()}</td>
+                <td>{(item.price * item.count).toLocaleString()}</td>
               </tr>
             ))}
           </table>

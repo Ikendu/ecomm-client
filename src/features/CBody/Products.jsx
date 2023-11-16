@@ -24,7 +24,6 @@ import { Link } from 'react-router-dom'
 
 const Products = () => {
   const { products, isLoading } = useSelector((state) => state.cart)
-  const dispatch = useDispatch()
 
   // useEffect(() => {
   //   fetch(`http://localhost:4000/products`).then((resp) => {
@@ -58,10 +57,10 @@ const Products = () => {
 
 const Display = ({ image, name, price, _id, added, count, createdAt, author }) => {
   const dispatch = useDispatch()
-  const { user, setUser } = useContext(UserContext)
+  const { user, setUser, url } = useContext(UserContext)
 
   useEffect(() => {
-    fetch(`https://hairview-api.onrender.com/profile`).then((resp) =>
+    fetch(url + `/profile`, { credentials: 'include' }).then((resp) =>
       resp.json().then((userData) => {
         setUser(userData)
       })
@@ -69,7 +68,7 @@ const Display = ({ image, name, price, _id, added, count, createdAt, author }) =
   }, [])
 
   const deleteItem = (id) => {
-    fetch(`https://hairview-api.onrender.com/delete/${id}`, {
+    fetch(url + `/delete/${id}`, {
       method: `DELETE`,
     }).then((res) => {
       console.log(res)
@@ -80,7 +79,7 @@ const Display = ({ image, name, price, _id, added, count, createdAt, author }) =
   return (
     <div className='item' key={_id}>
       <Link to={`/product/${_id}`}>
-        <img src={`https://hairview-api.onrender.com/` + image} alt={name} />
+        <img src={url + `/` + image} alt={name} />
       </Link>
 
       <p className='title'>{name}</p>
@@ -128,7 +127,7 @@ const Display = ({ image, name, price, _id, added, count, createdAt, author }) =
       )}
 
       <div className='extraBtn'>
-        {user.name && (
+        {user?.name && (
           <div>
             <Link to={`/edit/${_id}`}>
               <button className='editPost'>Edit</button>
