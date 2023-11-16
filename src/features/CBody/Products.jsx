@@ -72,7 +72,7 @@ const Display = ({ image, name, price, _id, added, count, createdAt, author }) =
       method: `DELETE`,
     }).then((res) => {
       console.log(res)
-      window.location.reload()
+      // window.location.reload()
     })
   }
 

@@ -34,6 +34,7 @@ const Post = () => {
   const [content, setContent] = useState(``)
   const [files, setFiles] = useState(``)
   const [redirect, setRedirect] = useState(false)
+
   const { url } = useContext(UserContext)
 
   const postItems = async (e) => {
