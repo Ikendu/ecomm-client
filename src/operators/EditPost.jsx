@@ -58,7 +58,7 @@ const EditPost = () => {
     if (files?.[0]) data.set(`file`, files?.[0])
     data.set(`id`, id)
 
-    const resp = await fetch(url + `/post`, {
+    const resp = await fetch(url + `/edit`, {
       method: `PUT`,
       body: data,
       credentials: `include`,
