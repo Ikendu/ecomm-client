@@ -87,7 +87,7 @@ nav ul li:hover {
   display: none;
   background-color: #2a0305;
   position: fixed;
-  right: 0px;
+  right: 0;
   top: 43px;
   z-index: 9;
   border-top-right-radius: 0;
@@ -158,6 +158,11 @@ nav ul li:hover {
     padding-bottom: 2px;
     margin-top: -20px;
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .shopping {
+    margin-right: -160px;
   }
 }
 /*
@@ -323,7 +328,7 @@ a {
   }
   main,
   main img {
-    height: 60vh;
+    height: 70vh;
   }
 }
 @media screen and (max-width: 400px) {
@@ -349,7 +354,7 @@ a {
   }
   main,
   main img {
-    height: 70vh;
+    height: 75%;
   }
   main .more-write {
     color: rgb(26, 24, 24);
