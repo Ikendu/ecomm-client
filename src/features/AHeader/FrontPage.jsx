@@ -7,7 +7,7 @@ const FrontPage = () => {
       <div className='front-page'>
         <h1 className='glamore'>Glamour feel</h1>
         <div className='write'>
-          <p className='head-write'>We are here to give you the best for it </p>
+          <p className='head-write'>We are here to give you the best of your budget</p>
           <p className='more-write'>
             We are here to grace your looks and bring out the glamour, elegance and beauty in you.
             your awesome look is our concern. We also considers your budget as we bring to you

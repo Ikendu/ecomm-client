@@ -53,7 +53,7 @@ const Navbar = () => {
               <li>Home</li>
             </Link>
             <a href='#products'>
-              <li>Produts</li>
+              <li>Products</li>
             </a>
             <a href='#social'>
               <li>Social Media</li>
