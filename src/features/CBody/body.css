@@ -140,5 +140,12 @@
 .product-details .button-para {
   background-color: rgb(247, 247, 34);
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
+}
+.product-loading {
+  margin: 100px;
+  color: rgb(28, 20, 141);
+  border-top: solid blue;
+  border-top-right-radius: 20px;
+  max-width: 200px;
 }

@@ -17,10 +17,17 @@ import Payment from '../EPayment/Payment'
 
 const Product = () => {
   const [details, setDetails] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
   const { id } = useParams()
   const { user, setUser, url } = useContext(UserContext)
   const dispatch = useDispatch()
   const { isOpen } = useSelector((state) => state.modal)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 4000)
+  }, [])
 
   useEffect(() => {
     fetch(url + `/profile`, { credentials: `include` }).then((resp) =>
@@ -37,6 +44,13 @@ const Product = () => {
   }, [])
 
   const { name, price, image, content, createdAt, _id, author, added, count } = details
+  if (isLoading) {
+    return (
+      <div>
+        <h3 className='product-loading'>Loading...</h3>
+      </div>
+    )
+  }
   return (
     <>
       {isOpen && <Payment />}
@@ -61,10 +75,7 @@ const Product = () => {
           >
             <span>Add to Cart</span>
           </button>
-          <p className='button-para'>
-            Open the cart above to increaese or decrease the quantity of this product you want to
-            buy.
-          </p>
+          <p className='button-para'>Open the cart above to increaese or decrease quantity.</p>
         </div>
         {/* {!added ? (
           <button
