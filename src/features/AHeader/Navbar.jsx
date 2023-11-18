@@ -105,6 +105,9 @@ const Navbar = () => {
             <a href='#about-us'>
               <li>About us</li>
             </a>
+            <Link to='/admin'>
+              <li>Admin</li>
+            </Link>
           </ul>
         </nav>
       )}
