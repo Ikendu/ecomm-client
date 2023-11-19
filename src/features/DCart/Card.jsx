@@ -75,13 +75,13 @@ const Card = () => {
           </div>
           <p className='total-amount'>Total</p>
           <div className='checkout'>
-            <div className='final' onClick={() => dispatch(openModel())}>
+            <button className='final' onClick={() => dispatch(openModel())}>
               Pay here
-            </div>
+            </button>
             <div className='total'>N{total.toLocaleString()}</div>
-            <div className='closeShopping' onClick={() => dispatch(closeCart())}>
+            <button className='closeShopping' onClick={() => dispatch(closeCart())}>
               Minimize
-            </div>
+            </button>
           </div>
         </div>
       )}

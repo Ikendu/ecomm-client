@@ -29,7 +29,7 @@
 .card-shopping {
   position: fixed;
   top: 0;
-  background: #1d110c;
+  background: #042694;
   width: 500px;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -59,6 +59,7 @@
 .total-amount {
   text-align: center;
   letter-spacing: 3px;
+  margin-bottom: 10px;
 }
 .checkout {
   display: grid;
@@ -71,19 +72,7 @@
   font-size: 18px;
   letter-spacing: 2px;
 }
-.checkout div {
-  height: 50px;
-  border-radius: 10px 10px 0 0;
-  font-weight: bold;
-  padding-top: 10px;
-}
-.checkout div:nth-child(1) {
-  background: #112b5e;
-  color: #fff;
-}
-.checkout div:last-child {
-  background: #323d1a;
-}
+
 .listItems {
   display: grid;
   grid-template-columns: repeat(2, 3fr);
@@ -96,6 +85,11 @@
 .details {
   margin-left: -40px;
 }
+.details button {
+  background-color: rgb(95, 23, 1);
+  border-radius: 10px;
+  border: solid rgb(197, 9, 9) 2px;
+}
 .gapping {
   padding: 3px;
 }
@@ -105,15 +99,45 @@
 .cardGroup .counter {
   margin-left: 60px;
 }
+.counter button {
+  background-color: rgb(9, 71, 71);
+  border: solid rgb(16, 201, 201) 2px;
+  padding: 2px 8px;
+}
+.counter button:last-child {
+  padding: 2px 10px;
+}
 .counter p {
-  margin-left: 6px;
+  margin-left: 10px;
 }
 button {
   background-color: #28330f;
   color: #ced6d8;
-  border-radius: 5px;
+  border-radius: 3px;
   font-size: 14px;
 }
+/* 
+.checkout div:nth-child(1) {
+  background: #112b5e;
+  color: #fff;
+}
+.checkout div:last-child {
+  background: #323d1a;
+} */
+
+.closeShopping,
+.final {
+  height: 50px;
+  background-color: rgb(173, 42, 3);
+  border-radius: 10px;
+  border: solid rgb(243, 67, 67) 2px;
+  letter-spacing: 3px;
+}
+.final {
+  background-color: rgb(9, 71, 71);
+  border: solid rgb(16, 201, 201) 2px;
+}
+
 @media screen and (max-width: 600px) {
   .shopping svg {
     width: 40px;
