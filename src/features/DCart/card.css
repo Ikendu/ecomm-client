@@ -108,7 +108,8 @@
   padding: 2px 10px;
 }
 .counter p {
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  text-align: center;
 }
 button {
   background-color: #28330f;

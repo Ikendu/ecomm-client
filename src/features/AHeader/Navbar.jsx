@@ -92,7 +92,7 @@ const Navbar = () => {
       </header>
       {showNav && (
         <nav className='content-mob' id='content-mob'>
-          <ul className='lists-mob' id='bar'>
+          <ul className='lists-mob' id='bar' onClick={() => setShowNav(false)}>
             <Link to='/'>
               <li>Home</li>
             </Link>
