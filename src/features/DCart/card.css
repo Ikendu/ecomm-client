@@ -29,7 +29,7 @@
 .card-shopping {
   position: fixed;
   top: 0;
-  background: #042694;
+  background: #031f79;
   width: 500px;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -83,12 +83,12 @@
   border-radius: 5px;
 }
 .details {
-  margin-left: -40px;
+  margin-left: -20px;
 }
 .details button {
   background-color: rgb(95, 23, 1);
   border-radius: 10px;
-  border: solid rgb(197, 9, 9) 2px;
+  border: solid rgb(153, 11, 11) 2px;
 }
 .gapping {
   padding: 3px;
@@ -101,7 +101,7 @@
 }
 .counter button {
   background-color: rgb(9, 71, 71);
-  border: solid rgb(16, 201, 201) 2px;
+  border: solid rgb(7, 160, 160) 2px;
   padding: 2px 8px;
 }
 .counter button:last-child {
@@ -112,10 +112,7 @@
   text-align: center;
 }
 button {
-  background-color: #28330f;
   color: #ced6d8;
-  border-radius: 3px;
-  font-size: 14px;
 }
 /* 
 .checkout div:nth-child(1) {
