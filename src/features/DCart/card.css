@@ -144,7 +144,7 @@ button {
     width: 400px;
   }
   .heading p:last-child {
-    margin-left: 30px;
+    margin-left: 40px;
   }
 }
 @media screen and (max-width: 400px) {

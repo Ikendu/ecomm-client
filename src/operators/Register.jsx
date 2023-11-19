@@ -6,6 +6,7 @@ const Register = () => {
   const [name, setName] = useState(``)
   const [email, setEmail] = useState(``)
   const [password, setPassword] = useState(``)
+  const [loading, setLoading] = useState(false)
 
   const { user, setUser, url } = useContext(UserContext)
 
@@ -21,6 +22,7 @@ const Register = () => {
 
   const handleSub = async (e) => {
     e.preventDefault()
+    setLoading(true)
     const resp = await fetch(url + `/register`, {
       method: `POST`,
       body: JSON.stringify({ name, email, password }),
@@ -28,9 +30,11 @@ const Register = () => {
     })
     if (!resp.ok) {
       alert(`Registration Failed`)
+      setLoading(false)
       return
     }
     alert(`Registration successful`)
+    setLoading(false)
   }
 
   return (
@@ -57,9 +61,17 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <input type='submit' className='btn' />
+          {loading && <h3 className='login-loading'>Loading...</h3>}
         </form>
       )}
-      <Link to={`/admin`}>Login</Link>
+
+      <div>
+        Click
+        <Link to={`/admin`} className='login-register'>
+          here
+        </Link>
+        to login existing admin
+      </div>
     </div>
   )
 }

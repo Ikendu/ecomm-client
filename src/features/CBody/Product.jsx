@@ -77,6 +77,12 @@ const Product = () => {
           </button>
           <p className='button-para'>Open the cart above to increaese or decrease quantity.</p>
         </div>
+        <div className='back-shop'>
+          Click
+          <Link to={`/`}>here</Link>
+          to go back to Shopping
+        </div>
+
         {/* {!added ? (
           <button
             onClick={() => {
@@ -123,13 +129,13 @@ const Product = () => {
         {user?.name && (
           <div className='extraBtn'>
             <Link to={`/edit/${_id}`}>
-              <button className='editPost'>Edit</button>
+              <button className='edit-product'>Edit</button>
             </Link>
 
-            <div className='time-ago'>
-              <time>Post created on {createdAt}</time>
+            <div className='time-author'>
+              <time>Date created: {createdAt}</time>
 
-              <p>{author?.name}</p>
+              <p>Author: {author?.name.toUpperCase()}</p>
             </div>
           </div>
         )}

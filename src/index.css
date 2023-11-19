@@ -18,11 +18,15 @@ body {
   background: #e3e7e8;
   font-family: system-ui;
 }
+button {
+  background-color: #406e52;
+  border-radius: 5px;
+}
 button:hover {
   color: #77f480;
   border-top: 2px solid #964549;
   border-bottom: 2px solid rgb(143, 49, 54);
-  border-radius: 16px;
+  border-radius: 10px;
 }
 
 /* Admin Section */
@@ -124,4 +128,13 @@ button:hover {
     max-width: 60%;
     text-align: center;
   }
+}
+.login-loading {
+  color: rgb(8, 11, 197);
+  font-style: italic;
+}
+.login-register {
+  font-style: italic;
+  color: blue;
+  margin: 0 5px;
 }

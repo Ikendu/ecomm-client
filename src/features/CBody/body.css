@@ -84,6 +84,14 @@
 .item .extraBtn .editPost {
   background-color: #133015;
 }
+.edit-product {
+  background-color: #133015;
+  font-size: 16px;
+  letter-spacing: 5px;
+  padding: 20px !important;
+  margin: 10px 0 30px 0;
+  border-radius: 5px;
+}
 .more-details {
   background-color: transparent !important;
   border: none !important;
@@ -142,4 +150,23 @@
   background-color: rgb(247, 247, 34);
   font-weight: bold;
   font-size: 14px;
+  margin-bottom: 30px;
+}
+.product-details .button-para button {
+  background-color: rgb(70, 70, 3);
+  font-weight: bold;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.time-author {
+  text-align: center;
+}
+.back-shop {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.back-shop a {
+  font-style: italic;
+  margin: 5px;
+  color: rgb(13, 105, 105);
 }
