@@ -82,9 +82,8 @@ const Footer = () => {
         </div>
 
         <p className='developer'>
-          Developed and Managed by Ikendu Lifes
+          Developed and Managed by Chibundu
           <span className='devnum'> +2348061632276</span>
-          <span className='devreg'>CAC Reg: 4133480</span>
         </p>
       </footer>
     </>

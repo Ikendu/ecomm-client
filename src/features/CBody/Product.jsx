@@ -47,7 +47,7 @@ const Product = () => {
   if (isLoading) {
     return (
       <div>
-        <h3 className='product-loading'>Loading...</h3>
+        <h2 className='product-loading'>Loading...</h2>
       </div>
     )
   }
