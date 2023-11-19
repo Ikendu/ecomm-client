@@ -143,6 +143,9 @@ button {
   .card-shopping {
     width: 400px;
   }
+  .heading p:last-child {
+    margin-left: 30px;
+  }
 }
 @media screen and (max-width: 400px) {
   .shopping svg {
