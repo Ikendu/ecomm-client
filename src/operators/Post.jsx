@@ -34,11 +34,13 @@ const Post = () => {
   const [content, setContent] = useState(``)
   const [files, setFiles] = useState(``)
   const [redirect, setRedirect] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const { url } = useContext(UserContext)
 
   const postItems = async (e) => {
     e.preventDefault()
+    setLoading(true)
     const data = new FormData()
     data.set(`name`, name)
     data.set(`price`, price)
@@ -82,6 +84,7 @@ const Post = () => {
           onChange={(newValue) => setContent(newValue)}
         />
         <input type='submit' className='btn' />
+        {loading && <h3 className='login-register'>Loading...</h3>}
       </form>
     </div>
   )
