@@ -51,6 +51,7 @@ const Post = () => {
       method: `POST`,
       body: data,
       credentials: `include`,
+      headers: { 'Content-Type': 'application/json' },
     })
     if (resp.ok) setRedirect(true)
   }
